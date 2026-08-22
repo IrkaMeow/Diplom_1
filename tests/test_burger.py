@@ -12,7 +12,7 @@ class TestBurger:
         new_burger.set_buns(mock_bun)
         assert new_burger.bun == mock_bun
 
-    # проверяем добавление ингридеентов в бургер (соус и начинка) и их расположение
+    # проверяем добавление ингредиентов в бургер (соус и начинка) и их расположение
     def test_add_ingredient_sauce_and_filling_add_to_list(self, new_burger, mock_filling, mock_sauce):
         new_burger.add_ingredient(mock_filling)
         new_burger.add_ingredient(mock_sauce)

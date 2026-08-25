@@ -3,9 +3,13 @@ from unittest.mock import Mock
 
 class TestBurger:
     # проверяем инициализацию объекта - булочка пустая, список ингредиентов - пустой
-    def test_init_burger_empty_ingredient_bun_no(self, new_burger):
-        assert new_burger.bun is None
-        assert new_burger.ingredients == []
+    @pytest.mark.parametrize('attribute, value', [
+            ('bun', None), 
+            ('ingredients', [])
+        ])
+    def test_init_burger_empty_ingredient_bun_no(self, new_burger, attribute, value):
+        assert getattr(new_burger, attribute) == value
+        
 
     # проверяем успешную установку булочки
     def test_set_buns_option_bun_is_correct(self, new_burger, mock_bun):
